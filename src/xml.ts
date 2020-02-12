@@ -1,6 +1,6 @@
 import { parse } from 'fast-xml-parser';
 
-export const parseXML = (xmlData: string) =>
+export const parseXml = (xmlData: string) =>
   parse(xmlData, {
     attributeNamePrefix: '@',
     ignoreAttributes: false,
