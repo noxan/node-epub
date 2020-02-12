@@ -1,4 +1,3 @@
-import fixutureFull from './manifest.fixture-full.json';
 import fixutureMini from './manifest.fixture-mini.json';
 import { parseManifest } from './manifest';
 
