@@ -1,7 +1,7 @@
 {
   "name": "node-epub",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "src/index.ts",
   "repository": "git@github.com:noxan/node-epub.git",
   "author": "Richard <richard@stromer.org>",
   "license": "MIT",
