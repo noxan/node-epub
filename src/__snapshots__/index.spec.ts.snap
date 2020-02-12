@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`node-epub should read epub metadata from file 1`] = `
+Object {
+  "contributor": Object {
+    "id": "contributor",
+    "text": "Pages Publishing macOS v1.0",
+  },
+  "creator": Object {
+    "id": "creator",
+    "text": "Richard",
+  },
+  "date": "2020-02-12",
+  "identifier": Object {
+    "id": "BookId",
+    "text": "345A4F7A-D930-4545-B1E4-3FAF38917550",
+  },
+  "language": "en",
+  "meta": Array [
+    Object {
+      "property": "role",
+      "refines": "#creator",
+      "scheme": "marc:relators",
+      "text": "aut",
+    },
+    Object {
+      "content": "Pages Publishing macOS v1.0",
+      "name": "generator",
+    },
+    Object {
+      "property": "role",
+      "refines": "#contributor",
+      "scheme": "marc:relators",
+      "text": "bkp",
+    },
+    Object {
+      "property": "dcterms:modified",
+      "text": "2020-02-12T11:01:47Z",
+    },
+    Object {
+      "property": "ibooks:specified-fonts",
+      "text": true,
+    },
+    Object {
+      "property": "ibooks:version",
+      "text": 1,
+    },
+    Object {
+      "content": "cover-image",
+      "name": "cover",
+    },
+  ],
+  "subject": "Reference",
+  "title": "Lorem ipsum",
+}
+`;
