@@ -5,6 +5,9 @@
   "repository": "git@github.com:noxan/node-epub.git",
   "author": "Richard <richard@stromer.org>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
   "devDependencies": {
     "typescript": "^3.7.5"
   }
