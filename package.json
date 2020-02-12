@@ -26,6 +26,7 @@
   "dependencies": {
     "@types/adm-zip": "^0.4.32",
     "adm-zip": "^0.4.14",
+    "camelcase-keys": "^6.1.2",
     "fast-xml-parser": "^3.16.0"
   }
 }
