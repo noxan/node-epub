@@ -12,5 +12,9 @@
   },
   "devDependencies": {
     "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "@types/adm-zip": "^0.4.32",
+    "adm-zip": "^0.4.14"
   }
 }

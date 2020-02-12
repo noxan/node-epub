@@ -2,6 +2,23 @@
 # yarn lockfile v1
 
 
+"@types/adm-zip@^0.4.32":
+  version "0.4.32"
+  resolved "https://registry.yarnpkg.com/@types/adm-zip/-/adm-zip-0.4.32.tgz#6de01309af60677065d2e52b417a023303220931"
+  integrity sha512-hv1O7ySn+XvP5OeDQcJFWwVb2v+GFGO1A9aMTQ5B/bzxb7WW21O8iRhVdsKKr8QwuiagzGmPP+gsUAYZ6bRddQ==
+  dependencies:
+    "@types/node" "*"
+
+"@types/node@*":
+  version "13.7.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.7.1.tgz#238eb34a66431b71d2aaddeaa7db166f25971a0d"
+  integrity sha512-Zq8gcQGmn4txQEJeiXo/KiLpon8TzAl0kmKH4zdWctPj05nWwp1ClMdAVEloqrQKfaC48PNLdgN/aVaLqUrluA==
+
+adm-zip@^0.4.14:
+  version "0.4.14"
+  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.4.14.tgz#2cf312bcc9f8875df835b0f6040bd89be0a727a9"
+  integrity sha512-/9aQCnQHF+0IiCl0qhXoK7qs//SwYE7zX8lsr/DNk1BRAHYxeLZPL4pguwK29gUEqasYQjqPtEpDRSWEkdHn9g==
+
 typescript@^3.7.5:
   version "3.7.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.5.tgz#0692e21f65fd4108b9330238aac11dd2e177a1ae"
