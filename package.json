@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:noxan/node-epub.git",
   "author": "Richard <richard@stromer.org>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  }
 }
