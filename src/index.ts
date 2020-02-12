@@ -1,6 +1,7 @@
 import Zip from 'adm-zip';
 
 import { parseXml } from './xml';
+import { parseManifest } from './manifest';
 
 export class EPub {
   private zip: Zip;
@@ -19,7 +20,7 @@ export class EPub {
 
     this.version = opfFileData.version;
     this.metadata = opfFileData.metadata;
-    this.manifest = opfFileData.manifest;
+    this.manifest = parseManifest(opfFileData.manifest);
     this.spine = opfFileData.spine;
     this.guide = opfFileData.guide;
   }
