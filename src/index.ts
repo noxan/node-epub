@@ -5,7 +5,11 @@ import { parseXml } from './xml';
 export class EPub {
   private zip: Zip;
 
+  version: string;
   metadata: any;
+  manifest: any;
+  guide: any;
+  spine: any;
 
   constructor(fileNameOrBuffer: string | Buffer) {
     this.zip = new Zip(fileNameOrBuffer);
@@ -13,7 +17,11 @@ export class EPub {
     const opfFilePath = this.getOpfFilePath();
     const opfFileData = this.parseOpfFile(opfFilePath);
 
+    this.version = opfFileData.version;
     this.metadata = opfFileData.metadata;
+    this.manifest = opfFileData.manifest;
+    this.spine = opfFileData.spine;
+    this.guide = opfFileData.guide;
   }
 
   getOpfFilePath() {
