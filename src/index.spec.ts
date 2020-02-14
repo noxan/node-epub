@@ -22,4 +22,9 @@ describe('node-epub', () => {
     const epub = new EPub('./examples/Lorem Ipsum.epub');
     expect(epub.getTitle()).toEqual('Lorem ipsum');
   });
+
+  it('should get title of the book of Die Verwandlung', () => {
+    const epub = new EPub('./examples/Die Verwandlung - Franz Kafka.epub');
+    expect(epub.getTitle()).toEqual('Die Verwandlung');
+  });
 });
