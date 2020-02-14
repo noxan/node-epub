@@ -17,4 +17,9 @@ describe('node-epub', () => {
       mediaType: 'image/png',
     });
   });
+
+  it('should get title of the book', () => {
+    const epub = new EPub('./examples/Lorem Ipsum.epub');
+    expect(epub.getTitle()).toEqual('Lorem ipsum');
+  });
 });

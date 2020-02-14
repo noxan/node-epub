@@ -25,6 +25,10 @@ export class EPub {
     this.guide = opfFileData.guide;
   }
 
+  getTitle() {
+    return this.metadata.title;
+  }
+
   getCoverImage() {
     const coverImageId = this.metadata.meta.find(
       (item: any) => item.name === 'cover',
