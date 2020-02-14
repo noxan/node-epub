@@ -8,4 +8,13 @@ describe('node-epub', () => {
     expect(epub.spine).toMatchSnapshot();
     expect(epub.guide).toMatchSnapshot();
   });
+
+  it('should find the cover image', () => {
+    const epub = new EPub('./examples/lorem-ipsum-pages.epub');
+    expect(epub.getCoverImage()).toEqual({
+      href: 'images/cover-image.png',
+      id: 'cover-image',
+      mediaType: 'image/png',
+    });
+  });
 });

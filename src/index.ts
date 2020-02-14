@@ -25,6 +25,15 @@ export class EPub {
     this.guide = opfFileData.guide;
   }
 
+  getCoverImage() {
+    const coverImageId = this.metadata.meta.find(
+      (item: any) => item.name === 'cover',
+    );
+
+    const coverImageManifest = this.manifest[coverImageId.content];
+    return coverImageManifest;
+  }
+
   getOpfFilePath() {
     const containerText = this.zip.readAsText('META-INF/container.xml');
     const xmlData = parseXml(containerText);
