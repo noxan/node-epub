@@ -1,14 +1,14 @@
 import fs from 'fs';
 
 export default class Book {
-  readonly isArchive: boolean;
+  readonly isZipFile: boolean;
   // readonly title: string;
 
   constructor(epubPathOrBuffer: string | Buffer) {
     const isString = typeof epubPathOrBuffer === 'string';
-    this.isArchive = !isString || !fs.lstatSync(epubPathOrBuffer).isDirectory();
+    this.isZipFile = !isString || !fs.lstatSync(epubPathOrBuffer).isDirectory();
 
-    if (this.isArchive) {
+    if (this.isZipFile) {
       console.log('handle zip file');
     } else {
       console.log('handle unpacked directory');
