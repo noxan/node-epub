@@ -4,11 +4,12 @@ import FileStorage, {
   ZipFileStorage,
   DirectoryFileStorage,
 } from './file-storage';
+import { readOpfFile } from './opf';
 
 export default class Book {
   private files: FileStorage;
   readonly isZipFile: boolean;
-  // readonly title: string;
+  readonly title: string;
 
   constructor(epubPathOrBuffer: string | Buffer) {
     const isString = typeof epubPathOrBuffer === 'string';
@@ -19,6 +20,11 @@ export default class Book {
     } else {
       this.files = new DirectoryFileStorage(epubPathOrBuffer as string);
     }
+
+    const opf = readOpfFile(this.files);
+
+    const { title } = opf.metadata;
+    this.title = typeof title === 'object' ? title.text : title;
   }
 }
 
