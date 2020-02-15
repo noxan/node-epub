@@ -1,6 +1,12 @@
 import fs from 'fs';
 
+import FileStorage, {
+  ZipFileStorage,
+  DirectoryFileStorage,
+} from './file-storage';
+
 export default class Book {
+  private files: FileStorage;
   readonly isZipFile: boolean;
   // readonly title: string;
 
@@ -9,9 +15,9 @@ export default class Book {
     this.isZipFile = !isString || !fs.lstatSync(epubPathOrBuffer).isDirectory();
 
     if (this.isZipFile) {
-      console.log('handle zip file');
+      this.files = new ZipFileStorage(epubPathOrBuffer);
     } else {
-      console.log('handle unpacked directory');
+      this.files = new DirectoryFileStorage(epubPathOrBuffer as string);
     }
   }
 }
