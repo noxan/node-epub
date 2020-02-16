@@ -7,9 +7,8 @@
   "author": "Richard <richard@stromer.org>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "test": "jest",
-    "prepublish": "tsc"
+    "build": "rm -rf dist && tsc",
+    "test": "jest"
   },
   "prettier": {
     "singleQuote": true,
