@@ -36,7 +36,7 @@ export default class Book {
   readonly creator: Creator[];
   readonly language: string[];
   readonly identifier: Identifier;
-  readonly coverimage: string;
+  readonly coverImage: object | undefined;
 
   constructor(epubPathOrBuffer: string | Buffer) {
     const isString = typeof epubPathOrBuffer === 'string';

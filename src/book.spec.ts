@@ -35,7 +35,7 @@ describe('epub30-test-0100 - Tests for Content Documents in a reflowable context
 
   it('should have one or multiple coverimage', () => {
     const book = new Book(epubFolderPath);
-    expect(book.coverimage).toEqual({});
+    expect(book.coverImage).toEqual({});
   });
 });
 
@@ -74,7 +74,7 @@ describe('epub30-test-0130 - Tests for right-to-left page progression and vertic
 
   it('should have one or multiple coverimage', () => {
     const book = new Book(epubFolderPath);
-    expect(book.coverimage).toEqual({});
+    expect(book.coverImage).toEqual({});
   });
 });
 
@@ -124,7 +124,7 @@ describe('Die Verwandlung - Franz Kafka - Epub zip-file', () => {
 
   it('should have one or multiple coverimage', () => {
     const book = new Book(epubFilePath);
-    expect(book.coverimage).toEqual({});
+    expect(book.coverImage).toEqual({});
   });
 });
 
@@ -178,6 +178,6 @@ describe('Lorem ipsum - Epub zip-file created with Apple Pages', () => {
 
   it('should have one or multiple coverimage', () => {
     const book = new Book(epubFilePath);
-    expect(book.coverimage).toEqual({});
+    expect(book.coverImage).toEqual({});
   });
 });
