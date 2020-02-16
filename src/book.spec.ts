@@ -24,6 +24,21 @@ describe('epub30-test-0100 - Tests for Content Documents in a reflowable context
     const book = new Book(epubFolderPath);
     expect(book.language).toEqual(['en', 'jp']);
   });
+
+  it('should have one or multiple identifier', () => {
+    const book = new Book(epubFolderPath);
+    expect(book.identifier).toEqual({});
+  });
+
+  it('should have one or multiple publisher', () => {
+    const book = new Book(epubFolderPath);
+    expect(book.publisher).toEqual({});
+  });
+
+  it('should have one or multiple coverimage', () => {
+    const book = new Book(epubFolderPath);
+    expect(book.coverimage).toEqual({});
+  });
 });
 
 describe('epub30-test-0130 - Tests for right-to-left page progression and vertical writing mode languages in a reflowable context', () => {
@@ -49,6 +64,21 @@ describe('epub30-test-0130 - Tests for right-to-left page progression and vertic
   it('should have one or multiple languages', () => {
     const book = new Book(epubFolderPath);
     expect(book.language).toEqual(['en', 'ja', 'he']);
+  });
+
+  it('should have one or multiple identifier', () => {
+    const book = new Book(epubFolderPath);
+    expect(book.identifier).toEqual({});
+  });
+
+  it('should have one or multiple publisher', () => {
+    const book = new Book(epubFolderPath);
+    expect(book.publisher).toEqual({});
+  });
+
+  it('should have one or multiple coverimage', () => {
+    const book = new Book(epubFolderPath);
+    expect(book.coverimage).toEqual({});
   });
 });
 
