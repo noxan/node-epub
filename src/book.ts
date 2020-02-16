@@ -43,7 +43,7 @@ export default class Book {
 
     const opf = readOpfFile(this.files);
 
-    const { title, creator, meta, language } = opf.metadata;
+    const { title, creator, meta, language, identifier } = opf.metadata;
 
     // Title
     this.title = typeof title === 'object' ? title.text : title;
@@ -58,7 +58,7 @@ export default class Book {
     this.language = ensureArray(language);
 
     // Identifier
-    this.identifier = null;
+    this.identifier = identifier;
 
     // Coverimage
     this.coverimage = null;

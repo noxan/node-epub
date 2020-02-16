@@ -27,7 +27,10 @@ describe('epub30-test-0100 - Tests for Content Documents in a reflowable context
 
   it('should have one or multiple identifier', () => {
     const book = new Book(epubFolderPath);
-    expect(book.identifier).toEqual({});
+    expect(book.identifier).toEqual({
+      id: 'uid',
+      text: 'com.github.epub-testsuite.epub30-test-0100',
+    });
   });
 
   it('should have one or multiple coverimage', () => {
@@ -63,7 +66,10 @@ describe('epub30-test-0130 - Tests for right-to-left page progression and vertic
 
   it('should have one or multiple identifier', () => {
     const book = new Book(epubFolderPath);
-    expect(book.identifier).toEqual({});
+    expect(book.identifier).toEqual({
+      id: 'uid',
+      text: 'com.github.epub-testsuite.epub30-test-0130',
+    });
   });
 
   it('should have one or multiple coverimage', () => {
@@ -114,7 +120,10 @@ describe('Lorem ipsum - Epub zip-file created with Apple Pages', () => {
 
   it('should have one or multiple identifier', () => {
     const book = new Book(epubFilePath);
-    expect(book.identifier).toEqual({});
+    expect(book.identifier).toEqual({
+      id: 'BookId',
+      text: '345A4F7A-D930-4545-B1E4-3FAF38917550',
+    });
   });
 
   it('should have one or multiple coverimage', () => {
