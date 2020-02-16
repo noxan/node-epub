@@ -9,6 +9,8 @@ import { readOpfFile } from './opf';
 const findTagMeta = (meta: object[], id: string) =>
   meta.find((item: any) => item.refines === `#${id}`);
 
+const ensureArray = (obj: any) => (obj instanceof Array ? obj : [obj]);
+
 export default class Book {
   private files: FileStorage;
   readonly isZipFile: boolean;
@@ -34,12 +36,10 @@ export default class Book {
     this.title = typeof title === 'object' ? title.text : title;
 
     // Creator
-    this.creator = (creator instanceof Array ? creator : [creator]).map(
-      (item: any) => ({
-        ...item,
-        meta: findTagMeta(meta, item.id),
-      }),
-    );
+    this.creator = ensureArray(creator).map((item: any) => ({
+      ...item,
+      meta: findTagMeta(meta, item.id),
+    }));
 
     // Language
     this.language = language;
