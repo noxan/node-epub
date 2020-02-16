@@ -6,10 +6,14 @@ import FileStorage, {
 } from './file-storage';
 import { readOpfFile } from './opf';
 
+const findTagMeta = (meta: object[], id: string) =>
+  meta.find((item: any) => item.refines === `#${id}`);
+
 export default class Book {
   private files: FileStorage;
   readonly isZipFile: boolean;
   readonly title: string;
+  readonly creator: string | string[];
 
   constructor(epubPathOrBuffer: string | Buffer) {
     const isString = typeof epubPathOrBuffer === 'string';
@@ -23,8 +27,15 @@ export default class Book {
 
     const opf = readOpfFile(this.files);
 
-    const { title } = opf.metadata;
+    const { title, creator, meta } = opf.metadata;
     this.title = typeof title === 'object' ? title.text : title;
+
+    this.creator = (creator instanceof Array ? creator : [creator]).map(
+      (item: any) => ({
+        ...item,
+        ...findTagMeta(meta, item.id),
+      }),
+    );
   }
 }
 
