@@ -22,13 +22,18 @@ interface Creator {
   text: string;
 }
 
+interface Identifier {
+  id: string;
+  text: string;
+}
+
 export default class Book {
   private files: FileStorage;
   readonly isZipFile: boolean;
   readonly title: string;
   readonly creator: Creator[];
   readonly language: string[];
-  readonly identifier: string;
+  readonly identifier: Identifier;
   readonly coverimage: string;
 
   constructor(epubPathOrBuffer: string | Buffer) {
