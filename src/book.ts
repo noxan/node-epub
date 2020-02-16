@@ -81,7 +81,7 @@ export default class Book {
     // Identifier
     this.identifier = identifier;
 
-    // Coverimage
+    // Cover image
     const coverImageId = findCoverImageId(meta);
     if (coverImageId) {
       const coverImage = manifest.find((item: any) => item.id === coverImageId);
