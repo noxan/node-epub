@@ -89,6 +89,6 @@ describe('Lorem ipsum - Epub zip-file created with Apple Pages', () => {
 
   it('should have one or multiple languages', () => {
     const book = new Book(epubFilePath);
-    expect(book.language).toEqual('en');
+    expect(book.language).toEqual(['en']);
   });
 });

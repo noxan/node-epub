@@ -16,7 +16,7 @@ export default class Book {
   readonly isZipFile: boolean;
   readonly title: string;
   readonly creator: string[];
-  readonly language: string | string[];
+  readonly language: string[];
 
   constructor(epubPathOrBuffer: string | Buffer) {
     const isString = typeof epubPathOrBuffer === 'string';
@@ -42,7 +42,7 @@ export default class Book {
     }));
 
     // Language
-    this.language = language;
+    this.language = ensureArray(language);
   }
 }
 
