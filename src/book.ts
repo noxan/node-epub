@@ -1,4 +1,5 @@
 import fs from 'fs';
+import camelcaseKeys from 'camelcase-keys';
 
 import FileStorage, {
   ZipFileStorage,
@@ -46,7 +47,7 @@ export default class Book {
   readonly creator: Creator[];
   readonly language: string[];
   readonly identifier: Identifier;
-  readonly coverImage: object | undefined;
+  readonly coverImage: object | undefined = undefined;
 
   constructor(epubPathOrBuffer: string | Buffer) {
     const isString = typeof epubPathOrBuffer === 'string';
@@ -82,8 +83,11 @@ export default class Book {
 
     // Coverimage
     const coverImageId = findCoverImageId(meta);
-    this.coverImage = coverImageId
-      ? manifest.find((item: any) => item.id === coverImageId)
-      : undefined;
+    if (coverImageId) {
+      const coverImage = manifest.find((item: any) => item.id === coverImageId);
+      if (coverImage) {
+        this.coverImage = camelcaseKeys(coverImage);
+      }
+    }
   }
 }
