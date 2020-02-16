@@ -13,6 +13,16 @@ const findTagMeta = (meta: object[], id: string) =>
 
 const ensureArray = (obj: any) => (obj instanceof Array ? obj : [obj]);
 
+const findCoverImageId = (meta: object[]) => {
+  if (meta && meta instanceof Array) {
+    const coverImageObject: any = meta.find(
+      (item: any) => item.name === 'cover',
+    );
+    return coverImageObject?.content || 'cover';
+  }
+  return 'cover';
+};
+
 interface Creator {
   id: string;
   meta: {
@@ -50,6 +60,9 @@ export default class Book {
 
     const opf = readOpfFile(this.files);
 
+    const {
+      manifest: { item: manifest },
+    } = opf;
     const { title, creator, meta, language, identifier } = opf.metadata;
 
     // Title
@@ -68,6 +81,9 @@ export default class Book {
     this.identifier = identifier;
 
     // Coverimage
-    this.coverimage = null;
+    const coverImageId = findCoverImageId(meta);
+    this.coverImage = coverImageId
+      ? manifest.find((item: any) => item.id === coverImageId)
+      : undefined;
   }
 }
