@@ -13,7 +13,7 @@ export default class Book {
   private files: FileStorage;
   readonly isZipFile: boolean;
   readonly title: string;
-  readonly creator: string | string[];
+  readonly creator: string[];
 
   constructor(epubPathOrBuffer: string | Buffer) {
     const isString = typeof epubPathOrBuffer === 'string';
