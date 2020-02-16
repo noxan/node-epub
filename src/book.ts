@@ -29,7 +29,6 @@ export default class Book {
   readonly creator: Creator[];
   readonly language: string[];
   readonly identifier: any;
-  readonly publisher: any;
   readonly coverimage: any;
 
   constructor(epubPathOrBuffer: string | Buffer) {
@@ -60,9 +59,6 @@ export default class Book {
 
     // Identifier
     this.identifier = null;
-
-    // Publisher
-    this.publisher = null;
 
     // Coverimage
     this.coverimage = null;
