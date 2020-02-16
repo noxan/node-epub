@@ -7,7 +7,9 @@ import FileStorage, {
 import { readOpfFile } from './opf';
 
 const findTagMeta = (meta: object[], id: string) =>
-  meta.find((item: any) => item.refines === `#${id}`);
+  meta && meta instanceof Array
+    ? meta.find((item: any) => item.refines === `#${id}`)
+    : {};
 
 const ensureArray = (obj: any) => (obj instanceof Array ? obj : [obj]);
 
