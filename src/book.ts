@@ -11,11 +11,22 @@ const findTagMeta = (meta: object[], id: string) =>
 
 const ensureArray = (obj: any) => (obj instanceof Array ? obj : [obj]);
 
+interface Creator {
+  id: string;
+  meta: {
+    property: string;
+    refines: string;
+    scheme: string;
+    text: string;
+  };
+  text: string;
+}
+
 export default class Book {
   private files: FileStorage;
   readonly isZipFile: boolean;
   readonly title: string;
-  readonly creator: string[];
+  readonly creator: Creator[];
   readonly language: string[];
 
   constructor(epubPathOrBuffer: string | Buffer) {
