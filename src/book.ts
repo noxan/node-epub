@@ -33,7 +33,7 @@ export default class Book {
     this.creator = (creator instanceof Array ? creator : [creator]).map(
       (item: any) => ({
         ...item,
-        ...findTagMeta(meta, item.id),
+        meta: findTagMeta(meta, item.id),
       }),
     );
   }

@@ -66,10 +66,13 @@ describe('Lorem ipsum - Epub zip-file created with Apple Pages', () => {
     expect(book.creator).toEqual([
       {
         id: 'creator',
-        property: 'role',
-        refines: '#creator',
-        scheme: 'marc:relators',
-        text: 'aut',
+        meta: {
+          property: 'role',
+          refines: '#creator',
+          scheme: 'marc:relators',
+          text: 'aut',
+        },
+        text: 'Richard',
       },
     ]);
   });
