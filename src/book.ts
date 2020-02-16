@@ -14,6 +14,7 @@ export default class Book {
   readonly isZipFile: boolean;
   readonly title: string;
   readonly creator: string[];
+  readonly language: string;
 
   constructor(epubPathOrBuffer: string | Buffer) {
     const isString = typeof epubPathOrBuffer === 'string';
@@ -28,14 +29,20 @@ export default class Book {
     const opf = readOpfFile(this.files);
 
     const { title, creator, meta } = opf.metadata;
+
+    // Title
     this.title = typeof title === 'object' ? title.text : title;
 
+    // Creator
     this.creator = (creator instanceof Array ? creator : [creator]).map(
       (item: any) => ({
         ...item,
         meta: findTagMeta(meta, item.id),
       }),
     );
+
+    // Language
+    this.language = null;
   }
 }
 
