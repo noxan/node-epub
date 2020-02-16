@@ -1,5 +1,6 @@
-import fixutureMini from '../resources/manifest.fixture-mini.json';
-import fixutureFull from '../resources/manifest.fixture-full.json';
+import fixutureMini from './__fixtures__/manifest.fixture-mini';
+import fixutureFull from './__fixtures__/manifest.fixture-full';
+
 import { parseManifest } from './manifest';
 
 describe('manifest', () => {
