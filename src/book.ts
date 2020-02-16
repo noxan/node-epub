@@ -28,8 +28,8 @@ export default class Book {
   readonly title: string;
   readonly creator: Creator[];
   readonly language: string[];
-  readonly identifier: any;
-  readonly coverimage: any;
+  readonly identifier: string;
+  readonly coverimage: string;
 
   constructor(epubPathOrBuffer: string | Buffer) {
     const isString = typeof epubPathOrBuffer === 'string';
