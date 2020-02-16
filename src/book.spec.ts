@@ -19,6 +19,11 @@ describe('epub30-test-0100 - Tests for Content Documents in a reflowable context
     const book = new Book(epubFolderPath);
     expect(book.creator).toMatchSnapshot();
   });
+
+  it('should have one or multiple languages', () => {
+    const book = new Book(epubFolderPath);
+    expect(book.language).toEqual('en');
+  });
 });
 
 describe('epub30-test-0130 - Tests for right-to-left page progression and vertical writing mode languages in a reflowable context', () => {
@@ -39,6 +44,11 @@ describe('epub30-test-0130 - Tests for right-to-left page progression and vertic
   it('should have one or multiple creators', () => {
     const book = new Book(epubFolderPath);
     expect(book.creator).toMatchSnapshot();
+  });
+
+  it('should have one or multiple languages', () => {
+    const book = new Book(epubFolderPath);
+    expect(book.language).toEqual('en');
   });
 });
 
@@ -75,5 +85,10 @@ describe('Lorem ipsum - Epub zip-file created with Apple Pages', () => {
         text: 'Richard',
       },
     ]);
+
+    it('should have one or multiple languages', () => {
+      const book = new Book(epubFilePath);
+      expect(book.language).toEqual('en');
+    });
   });
 });
