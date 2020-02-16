@@ -83,8 +83,8 @@ describe('epub30-test-0130 - Tests for right-to-left page progression and vertic
   });
 });
 
-describe('Die Verwandlung - Franz Kafka - Epub zip-file', () => {
-  const epubFilePath = './examples/Die Verwandlung - Franz Kafka.epub';
+describe('Die Verwandlung by Franz Kafka - Epub zip-file', () => {
+  const epubFilePath = './resources/2-die-verwandlung.epub';
 
   it('should read epub zip from file path', () => {
     const book = new Book(epubFilePath);
@@ -134,7 +134,7 @@ describe('Die Verwandlung - Franz Kafka - Epub zip-file', () => {
 });
 
 describe('Lorem ipsum - Epub zip-file created with Apple Pages', () => {
-  const epubFilePath = './examples/Lorem ipsum.epub';
+  const epubFilePath = './resources/1-lorem-ipsum.epub';
 
   it('should read epub zip from file path', () => {
     const book = new Book(epubFilePath);
