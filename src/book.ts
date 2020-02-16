@@ -28,6 +28,9 @@ export default class Book {
   readonly title: string;
   readonly creator: Creator[];
   readonly language: string[];
+  readonly identifier: any;
+  readonly publisher: any;
+  readonly coverimage: any;
 
   constructor(epubPathOrBuffer: string | Buffer) {
     const isString = typeof epubPathOrBuffer === 'string';
@@ -54,15 +57,14 @@ export default class Book {
 
     // Language
     this.language = ensureArray(language);
+
+    // Identifier
+    this.identifier = null;
+
+    // Publisher
+    this.publisher = null;
+
+    // Coverimage
+    this.coverimage = null;
   }
 }
-
-// identifier: string;
-// title: string;
-// creator: string;
-// publisher: string;
-// language: string;
-
-// coverImage: {
-//   mediaType: string;
-// };

@@ -91,4 +91,19 @@ describe('Lorem ipsum - Epub zip-file created with Apple Pages', () => {
     const book = new Book(epubFilePath);
     expect(book.language).toEqual(['en']);
   });
+
+  it('should have one or multiple identifier', () => {
+    const book = new Book(epubFilePath);
+    expect(book.identifier).toEqual({});
+  });
+
+  it('should have one or multiple publisher', () => {
+    const book = new Book(epubFilePath);
+    expect(book.publisher).toEqual({});
+  });
+
+  it('should have one or multiple coverimage', () => {
+    const book = new Book(epubFilePath);
+    expect(book.coverimage).toEqual({});
+  });
 });
