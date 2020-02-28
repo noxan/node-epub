@@ -16,13 +16,15 @@ const findTagMeta = (meta: object[], id: string) =>
 const ensureArray = (obj: any) => (obj instanceof Array ? obj : [obj]);
 
 const findCoverImageId = (meta: object[]) => {
-  if (meta && meta instanceof Array) {
-    const coverImageObject: any = meta.find(
-      (item: any) => item.name === 'cover',
-    );
-    return coverImageObject?.content || 'cover';
+  if (!meta) {
+    return 'cover';
   }
-  return 'cover';
+
+  const metaArray = ensureArray(meta);
+  const coverImageObject: any = metaArray.find(
+    (item: any) => item.name === 'cover',
+  );
+  return coverImageObject?.content || 'cover';
 };
 
 interface Creator {
