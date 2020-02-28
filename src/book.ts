@@ -40,6 +40,12 @@ interface Identifier {
   text: string;
 }
 
+interface CoverImage {
+  href: string;
+  id: string;
+  mediaType: string;
+}
+
 export default class Book {
   private files: FileStorage;
   readonly isZipFile: boolean;
@@ -47,7 +53,7 @@ export default class Book {
   readonly creator: Creator[];
   readonly language: string[];
   readonly identifier: Identifier;
-  readonly coverImage: object | undefined = undefined;
+  readonly coverImage?: CoverImage;
 
   constructor(epubPathOrBuffer: string | Buffer) {
     const isString = typeof epubPathOrBuffer === 'string';
@@ -86,7 +92,7 @@ export default class Book {
     if (coverImageId) {
       const coverImage = manifest.find((item: any) => item.id === coverImageId);
       if (coverImage) {
-        this.coverImage = camelcaseKeys(coverImage);
+        this.coverImage = (camelcaseKeys(coverImage) as unknown) as CoverImage;
       }
     }
   }
