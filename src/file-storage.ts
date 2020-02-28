@@ -4,6 +4,7 @@ import Zip from 'adm-zip';
 
 export default interface FileStorage {
   readAsText(fileName: string, encoding?: string): string;
+  readAsBuffer(fileName: string): Buffer;
 }
 
 export class ZipFileStorage implements FileStorage {
@@ -15,6 +16,14 @@ export class ZipFileStorage implements FileStorage {
 
   readAsText(fileName: string, encoding = 'utf-8'): string {
     return this.zip.readAsText(fileName, encoding);
+  }
+
+  readAsBuffer(fileName: string): Buffer {
+    const buffer = this.zip.readFile(fileName);
+    if (buffer === null) {
+      throw new Error(`Failed to access "${fileName}" in zip archive.`);
+    }
+    return buffer;
   }
 }
 
@@ -28,5 +37,10 @@ export class DirectoryFileStorage implements FileStorage {
   readAsText(fileName: string, encoding = 'utf-8') {
     const filePath = path.join(this.rootDirectory, fileName);
     return fs.readFileSync(filePath, { encoding });
+  }
+
+  public readAsBuffer(fileName: string): Buffer {
+    const filePath = path.join(this.rootDirectory, fileName);
+    return fs.readFileSync(filePath);
   }
 }
