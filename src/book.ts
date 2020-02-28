@@ -97,4 +97,12 @@ export default class Book {
       }
     }
   }
+
+  readAsText(fileName: string, encoding?: string): string {
+    return this.files.readAsText(fileName, encoding);
+  }
+
+  readAsBuffer(fileName: string): Buffer {
+    return this.files.readAsBuffer(fileName);
+  }
 }
