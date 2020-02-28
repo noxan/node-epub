@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import camelcaseKeys from 'camelcase-keys';
 
 import FileStorage, {
@@ -48,6 +49,7 @@ interface CoverImage {
 
 export default class Book {
   private files: FileStorage;
+  private basePath: string;
   readonly isZipFile: boolean;
   readonly title: string;
   readonly creator: Creator[];
@@ -66,6 +68,7 @@ export default class Book {
     }
 
     const opfFilePath = findOpfFile(this.files);
+    this.basePath = path.dirname(opfFilePath);
     const opf = parseOpfFile(opfFilePath, this.files);
 
     const {
@@ -99,10 +102,12 @@ export default class Book {
   }
 
   readAsText(fileName: string, encoding?: string): string {
-    return this.files.readAsText(fileName, encoding);
+    const filePath = path.join(this.basePath, fileName);
+    return this.files.readAsText(filePath, encoding);
   }
 
   readAsBuffer(fileName: string): Buffer {
-    return this.files.readAsBuffer(fileName);
+    const filePath = path.join(this.basePath, fileName);
+    return this.files.readAsBuffer(filePath);
   }
 }
