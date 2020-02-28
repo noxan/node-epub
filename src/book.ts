@@ -95,7 +95,8 @@ export default class Book {
     const coverImageId = findCoverImageId(meta);
     if (coverImageId) {
       const coverImage = manifest.find((item: any) => item.id === coverImageId);
-      if (coverImage) {
+      // Exclude cover.xml files, we want an image
+      if (coverImage && coverImage['media-type'] !== 'application/xhtml+xml') {
         this.coverImage = (camelcaseKeys(coverImage) as unknown) as CoverImage;
       }
     }
