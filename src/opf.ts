@@ -1,7 +1,7 @@
 import FileStorage from './file-storage';
 import { parseXml } from './xml';
 
-export const findOpfFile = (fileStorage: FileStorage) => {
+export const findOpfFile = (fileStorage: FileStorage): string => {
   const text = fileStorage.readAsText('META-INF/container.xml');
   const xml = parseXml(text);
   return xml.container.rootfiles.rootfile['full-path'];
