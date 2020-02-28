@@ -5,7 +5,7 @@ import FileStorage, {
   ZipFileStorage,
   DirectoryFileStorage,
 } from './file-storage';
-import { readOpfFile } from './opf';
+import { findOpfFile, parseOpfFile } from './opf';
 
 const findTagMeta = (meta: object[], id: string) =>
   meta && meta instanceof Array
@@ -65,7 +65,8 @@ export default class Book {
       this.files = new DirectoryFileStorage(epubPathOrBuffer as string);
     }
 
-    const opf = readOpfFile(this.files);
+    const opfFilePath = findOpfFile(this.files);
+    const opf = parseOpfFile(opfFilePath, this.files);
 
     const {
       manifest: { item: manifest },
