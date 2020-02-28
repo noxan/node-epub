@@ -34,7 +34,7 @@ export class DirectoryFileStorage implements FileStorage {
     this.rootDirectory = directoryPath;
   }
 
-  readAsText(fileName: string, encoding = 'utf-8') {
+  readAsText(fileName: string, encoding = 'utf-8'): string {
     const filePath = path.join(this.rootDirectory, fileName);
     return fs.readFileSync(filePath, { encoding });
   }
