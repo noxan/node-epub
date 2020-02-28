@@ -39,7 +39,7 @@ export class DirectoryFileStorage implements FileStorage {
     return fs.readFileSync(filePath, { encoding });
   }
 
-  public readAsBuffer(fileName: string): Buffer {
+  readAsBuffer(fileName: string): Buffer {
     const filePath = path.join(this.rootDirectory, fileName);
     return fs.readFileSync(filePath);
   }
