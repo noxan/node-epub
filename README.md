@@ -17,3 +17,13 @@ console.log(
   epub.coverImage,
 );
 ```
+
+## Testing
+
+Make sure you have the git submodule initialized.
+
+```bash
+git submodule update --init
+```
+
+Then run the test cases with `yarn test`.
