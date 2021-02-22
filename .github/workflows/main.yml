@@ -32,7 +32,7 @@ jobs:
       - run: yarn install
 
       # Initialize git submodules for testing
-      - run: git submodule update --init
+      - uses: textbook/git-checkout-submodule-action@master
 
       # Run tests with yarn
       - run: yarn test
