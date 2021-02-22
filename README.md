@@ -20,10 +20,6 @@ console.log(
 
 ## Testing
 
-Make sure you have the git submodule initialized.
+Make sure you have the git submodule initialized: `git submodule update --init`
 
-```bash
-git submodule update --init
-```
-
-Then run the test cases with `yarn test`.
+Then run the test cases with: `yarn test`.
