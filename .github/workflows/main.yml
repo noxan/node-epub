@@ -25,14 +25,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # Initialize git submodules for testing
+      - uses: textbook/git-checkout-submodule-action@master
+
       # Setup Node.js environment
       - uses: actions/setup-node@v2
 
       # Install dependencies with yarn
       - run: yarn install
-
-      # Initialize git submodules for testing
-      - uses: textbook/git-checkout-submodule-action@master
 
       # Run tests with yarn
       - run: yarn test
